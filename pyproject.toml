@@ -7,4 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "jupyter>=1.1.1",
     "matplotlib>=3.10.8",
+    "tensorboard>=2.20.0",
+    "torchsummary>=1.5.1",
+    "tqdm>=4.67.3",
 ]
