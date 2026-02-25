@@ -9,3 +9,9 @@ wheels/
 # Virtual environments
 .venv
 MNIST/
+data/SKIN/
+runs/
+upload_img/
+dataset/
+*.pth
+checkpoint.pth
