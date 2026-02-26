@@ -14,4 +14,3 @@ runs/
 upload_img/
 dataset/
 *.pth
-checkpoint.pth
