@@ -14,3 +14,4 @@ runs/
 upload_img/
 dataset/
 *.pth
+img/
