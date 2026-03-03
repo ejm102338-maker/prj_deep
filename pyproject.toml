@@ -12,6 +12,7 @@ dependencies = [
     "matplotlib>=3.10.8",
     "python-multipart>=0.0.22",
     "setuptools==80.10.2",
+    "streamlit>=1.54.0",
     "tensorboard>=2.20.0",
     "torch>=2.10.0",
     "torchaudio>=2.10.0",
