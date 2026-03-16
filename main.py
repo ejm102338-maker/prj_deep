@@ -11,6 +11,7 @@ from PIL import Image
 import io
 from contextlib import asynccontextmanager
 
+## uvicorn main:app --reload --port 6003
 # uv add uuid 업로드된 파일 고유한 아이디 만들어주는 라이브러리
 import uuid
 

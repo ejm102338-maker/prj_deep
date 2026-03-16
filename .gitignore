@@ -15,3 +15,6 @@ upload_img/
 dataset/
 *.pth
 img/
+*.json
+data/
+runs/

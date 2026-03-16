@@ -17,6 +17,85 @@ import streamlit as st
 # if st.button("인사버튼"):
 #     st.success(f'안녕하세요 {name}님! 반갑습니다.')
 # 제목 / 텍스트 출력
+
+st.set_page_config(page_title="레이아웃데모",layout="wide")
+
+with st.sidebar:
+    st.header("필터")
+    date = st.date_input("날짜")
+    cls = st.selectbox("클래스",["전체","A","B","C"])
+    st.write("선택한 옵션:", cls)
+
+col1, col2 = st.columns(2)
+
+#컬럼 분할 (st.columns)
+with col1:
+    st.header("왼쪽")
+    st.write("여기는 첫 번째 컬럼입니다.")
+
+with col2:
+    st.header("오른쪽")
+    st.write("여기는 두 번째 컬럼입니다.")
+
+
+#3. 탭 (st.tabs)
+tab1, tab2, tab3 = st.tabs(["탭 1", "탭 2", "탭 3"])
+
+with tab1:
+    st.write("탭 1 내용")
+
+with tab2:
+    st.write("탭 2 내용")
+
+with tab3:
+    st.write("탭 3 내용")
+
+#4. 컨테이너 (st.container)
+container = st.container()
+container.write("이건 컨테이너 안에 들어갑니다.")
+container = st.container()
+container.write("이건 컨테이너 안에 들어갑니다.")
+
+st.write("이건 컨테이너 밖에 있음")
+
+#5. Expander (st.expander)
+with st.expander("더보기"):
+    st.write("이 안에 숨겨진 내용이 있습니다.")
+
+#Placeholder (st.empty)
+import time
+
+placeholder = st.empty()
+for i in range(5):
+    placeholder.write(f"카운트: {i}")
+    time.sleep(1)
+
+#6) 폼(form)으로 입력 묶기 (Submit까지 한 번에)
+
+st.subheader("6) 폼(form)으로 입력 묶기 (Submit까지 한 번에)")
+with st.form("hyperparams"):
+    lr = st.number_input("Learning Rate", 0.0001, 1.0, 0.001, format="%.4f")
+    epochs = st.slider("Epochs", 1, 200, 30)
+    submitted = st.form_submit_button("학습 시작")
+if submitted:
+    st.success(f"LR={lr}, Epochs={epochs}로 학습 시작!")
+
+#7) 세션 상태(session_state)로 상호작용 기억
+st.subheader("7) 세션 상태(session_state)로 상호작용 기억")
+if "filters" not in st.session_state:
+    st.session_state.filters = {"cls":"전체"}
+
+# st.session_state.filters["cls"] = st.sidebar.selectbox(
+#     "클래스", ["전체","A","B","C"], index=["전체","A","B","C"].index(st.session_state.filters["cls"])
+# )
+
+
+
+
+st.write("선택된 클래스:", st.session_state.filters["cls"])
+
+st.write("이건 컨테이너 밖에 있음")
+
 st.title("스트림릿 제목")
 st.header("헤더")
 st.subheader("서브헤더")
@@ -102,3 +181,4 @@ st.info("정보 메시지")
 # - **레이아웃 & 상호작용**: `columns`, `expander`, `progress`, `status message`
 
 # 👉 Streamlit은 “**데이터 → 입력 → 모델 → 출력**” 흐름을 자연스럽게 UI로 구성할 수 있도록 설계되어 있어, 딥러닝 모델 시연이나 대시보드 제작에 최적화되어 있습니다.
+
